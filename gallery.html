@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light">
-<title>МАУ «Волга» — Brand Foundation 2.0.0 · Палитра и типографика</title>
+<html lang="ru" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
+<title>МАУ «Волга» — Brand Foundation 2.1.0 · Палитра и типографика</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -9,7 +9,7 @@
 @font-face{font-family:'Involve';src:local('Involve Bold'),url('https://cdn.jsdelivr.net/gh/StefanPeev/Involve@main/fonts/TTF/Involve-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
 </style>
 <style id="brand-tokens">
-/* MAU Volga Brand Foundation — color and typography tokens, v2.0.0.
+/* MAU Volga Brand Foundation — color and typography tokens, v2.1.0.
    Source of truth: BRAND.md. No component styles or font files are included. */
 :root {
   /* Core palette */
@@ -107,6 +107,34 @@
   }
 }
 
+
+/* Dark theme: opt-in, semantic colors only; original logo colors are unchanged. */
+[data-theme="dark"] {
+  --volga-bg: #0B1634;
+  --volga-surface: #1E2537;
+  --volga-heading: #FFFFFF;
+  --volga-text: #F2F5FC;
+  --volga-text-secondary: #B2BFD3;
+  --volga-primary: #81ABF5;
+  --volga-primary-soft: #1D355F;
+  --volga-divider: #3D4C67;
+  --volga-control-border: #8CA0BC;
+  --volga-text-on-dark-muted: #B2BFD3;
+  --volga-on-primary: #0B1634;
+  --volga-on-dark: #FFFFFF;
+  --volga-primary-hover-alt: #BCD4F6;
+  --volga-link-hover: #BCD4F6;
+  --volga-link-visited: #BCD4F6;
+  --volga-link-on-dark-hover: #BCD4F6;
+  --volga-link-on-blue-hover: #1D355F;
+  --volga-success: #83DDAE;
+  --volga-success-bg: #153D31;
+  --volga-error: #FFABA5;
+  --volga-error-bg: #4A242A;
+  --volga-warning: #FFD18A;
+  --volga-warning-bg: #49351F;
+}
+
 </style><style id="gallery-preview-only">
 
 /* LOCAL gallery layout. None of the .g-* / .sample-* rules are brand instructions. */
@@ -200,15 +228,46 @@ body{margin:0;background:var(--volga-bg);color:var(--volga-text);font-family:var
 @media(max-width:700px){.g-page{padding:0 16px 70px}.g-top{padding:18px 0}.g-intro{padding:45px 0;grid-template-columns:1fr;gap:19px}.g-section{padding:25px 0 40px}.swatch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.g-row,.g-weights,.g-pairings,.g-links,.g-status{grid-template-columns:1fr}.g-samples{grid-template-columns:1fr}.g-surface{min-height:0}.g-type{padding:18px}.g-type-row{grid-template-columns:1fr;gap:10px}}
 @media(max-width:359px){.swatch-grid{grid-template-columns:1fr}.g-intro h1{font-size:34px}}
 
+</style><style id="gallery-theme-overrides">
+/* Visual gallery only: theme adaptation of examples, never part of tokens.css. */
+:root{color-scheme:light}
+html[data-theme="dark"]{color-scheme:dark}
+.g-head-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:flex-end}
+.g-theme-switch{display:flex;align-items:center;gap:4px;padding:3px;border:1px solid var(--volga-divider);border-radius:10px;background:var(--volga-surface)}
+.g-theme-button{border:1px solid transparent;border-radius:7px;padding:8px 14px;background:transparent;color:var(--volga-text-secondary);font:500 14px/1.3 var(--volga-font-text);cursor:pointer}
+.g-theme-button[aria-pressed="true"]{color:var(--volga-on-primary);background:var(--volga-primary)}
+.g-theme-button:focus-visible,.g-toggle:focus-visible{outline:1px solid var(--volga-primary);outline-offset:2px}
+.swatch,.g-type,.g-weight,.g-sample,.g-link-preview{background:var(--volga-surface)}
+.g-toggle{background:var(--volga-surface);border-color:var(--volga-divider)}
+.g-pair.dark,.g-surface.dark,.g-link-preview.dark{background:#0B1634;border-color:#3D4C67}
+html[data-theme="dark"] .g-pair.dark,
+html[data-theme="dark"] .g-surface.dark,
+html[data-theme="dark"] .g-link-preview.dark{background:var(--volga-primary-soft);border-color:var(--volga-divider)}
+.g-surface.blue h3,.g-surface.blue p,.g-surface.blue small,
+.g-link-preview.blue h3,.g-link-preview.blue em{color:var(--volga-on-primary)}
+.g-link-preview.blue{background:var(--volga-primary);border-color:var(--volga-primary)}
+.g-pair.dark .pair-title,.g-link-preview.dark h3,.g-surface.dark h3,
+.g-surface.dark p{color:#FFFFFF}
+.g-pair.dark p,.g-surface.dark small{color:#B2BFD3}
+.g-surface.dark p{color:#F2F5FC}
+.g-surface.dark small,.g-pair.dark p{color:var(--volga-text-on-dark-muted)}
+@media(max-width:700px){.g-top{align-items:flex-start;flex-direction:column}.g-head-right{width:100%;justify-content:space-between;gap:10px}.g-theme-button{padding:8px 10px}}
+@media(max-width:380px){.g-head-right{flex-direction:column;align-items:flex-start}}
 </style></head><body>
 <main class="g-page">
-  <header class="g-top"><span class="g-logo">ВОЛГА / BRAND</span><span class="g-id">Цвета и типографика · 2.0.0</span></header>
+  <header class="g-top"><span class="g-logo">ВОЛГА / BRAND</span>
+<div class="g-head-right"><span class="g-id">Цвета и типографика · 2.1.0</span>
+<div class="g-theme-switch" role="group" aria-label="Тема справочника">
+<button class="g-theme-button" type="button" data-theme-choice="light" aria-pressed="true">Светлая</button>
+<button class="g-theme-button" type="button" data-theme-choice="dark" aria-pressed="false">Тёмная</button>
+</div></div></header>
   <section class="g-intro"><div><span class="g-kicker">Фирменная основа</span><h1>Один язык.<br>Разные интерфейсы.</h1></div><p>Наглядный каталог цвета, заголовков и текста для всех цифровых продуктов «Волги». Элементы ниже показывают только допустимые цветовые сочетания, а не фиксируют их внешний вид.</p></section>
   <section class="g-section" id="palette"><div class="g-section-head"><h2>01. Цветовая палитра</h2><p>10 базовых ролей. Каждый цвет привязан к назначению; дополнительные цвета для hover и статусов приведены отдельно.</p></div>
-    <div class="swatch-grid"><article class="swatch"><div class="swatch-visual" style="background:#FCFDFF;color:#0B1634"><span>#FCFDFF</span></div><div class="swatch-copy"><b>Фон</b><code>--volga-bg</code><p>Главный фон, почти белый</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#FFFFFF;color:#0B1634"><span>#FFFFFF</span></div><div class="swatch-copy"><b>Поверхность</b><code>--volga-surface</code><p>Светлые области содержания</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#0B1634;color:#FFFFFF"><span>#0B1634</span></div><div class="swatch-copy"><b>Заголовки / navy</b><code>--volga-heading</code><p>Заголовки, тёмные поверхности</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#1E2537;color:#FFFFFF"><span>#1E2537</span></div><div class="swatch-copy"><b>Основной текст</b><code>--volga-text</code><p>Описания и абзацы</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#3D4C67;color:#FFFFFF"><span>#3D4C67</span></div><div class="swatch-copy"><b>Вторичный текст</b><code>--volga-text-secondary</code><p>Даты и пояснения</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#2954C7;color:#FFFFFF"><span>#2954C7</span></div><div class="swatch-copy"><b>Фирменный синий</b><code>--volga-primary</code><p>Акцент, действие, ссылка</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#E3EFFF;color:#0B1634"><span>#E3EFFF</span></div><div class="swatch-copy"><b>Мягкий акцент</b><code>--volga-primary-soft</code><p>Светло-голубая подложка</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#E1E8F2;color:#0B1634"><span>#E1E8F2</span></div><div class="swatch-copy"><b>Разделители</b><code>--volga-divider</code><p>Декоративные линии</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#60728C;color:#FFFFFF"><span>#60728C</span></div><div class="swatch-copy"><b>Функциональный контур</b><code>--volga-control-border</code><p>Цвет различимых границ</p></div></article><article class="swatch"><div class="swatch-visual" style="background:#B2BFD3;color:#0B1634"><span>#B2BFD3</span></div><div class="swatch-copy"><b>Текст на navy</b><code>--volga-text-on-dark-muted</code><p>Вторичный текст на тёмном</p></div></article></div>
+    <div class="swatch-grid"><article class="swatch"><div class="swatch-visual" style="background:var(--volga-bg);color:var(--volga-heading)"><span data-token-hex="--volga-bg">—</span></div><div class="swatch-copy"><b>Фон</b><code>--volga-bg</code><p>Фон страницы в активной теме</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-surface);color:var(--volga-heading)"><span data-token-hex="--volga-surface">—</span></div><div class="swatch-copy"><b>Поверхность</b><code>--volga-surface</code><p>Поверхности в активной теме</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-heading);color:var(--volga-surface)"><span data-token-hex="--volga-heading">—</span></div><div class="swatch-copy"><b>Заголовки / navy</b><code>--volga-heading</code><p>Основные заголовки</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-text);color:var(--volga-bg)"><span data-token-hex="--volga-text">—</span></div><div class="swatch-copy"><b>Основной текст</b><code>--volga-text</code><p>Описания и абзацы</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-text-secondary);color:var(--volga-bg)"><span data-token-hex="--volga-text-secondary">—</span></div><div class="swatch-copy"><b>Вторичный текст</b><code>--volga-text-secondary</code><p>Даты и пояснения</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-primary);color:var(--volga-on-primary)"><span data-token-hex="--volga-primary">—</span></div><div class="swatch-copy"><b>Фирменный синий</b><code>--volga-primary</code><p>Акцент, действие, ссылка</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-primary-soft);color:var(--volga-heading)"><span data-token-hex="--volga-primary-soft">—</span></div><div class="swatch-copy"><b>Мягкий акцент</b><code>--volga-primary-soft</code><p>Приглушённый акцентный фон</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-divider);color:var(--volga-heading)"><span data-token-hex="--volga-divider">—</span></div><div class="swatch-copy"><b>Разделители</b><code>--volga-divider</code><p>Декоративные линии</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-control-border);color:var(--volga-bg)"><span data-token-hex="--volga-control-border">—</span></div><div class="swatch-copy"><b>Функциональный контур</b><code>--volga-control-border</code><p>Цвет различимых границ</p></div></article><article class="swatch"><div class="swatch-visual" style="background:var(--volga-text-on-dark-muted);color:#0B1634"><span data-token-hex="--volga-text-on-dark-muted">—</span></div><div class="swatch-copy"><b>Приглушённый текст</b><code>--volga-text-on-dark-muted</code><p>Вторичный текст на тёмной поверхности</p></div></article></div>
   </section>
+
   <section class="g-section"><div class="g-section-head"><h2>02. Сочетания</h2><p>Одинаковые шрифты и цвета на различных поверхностях. Иллюстративная композиция, не шаблон секции.</p></div>
-    <div class="g-row"><div class="g-surface"><h3>Творчество начинается здесь</h3><p>Нейтральная поверхность, тёмный заголовок, основной текст и спокойная иерархия.</p><small>Поверхность #FFFFFF · заголовок #0B1634 · текст #1E2537</small></div><div class="g-surface soft"><h3>Время создавать новое</h3><p>Светло-голубая подложка подходит для аккуратного фирменного акцента.</p><small>Подложка #E3EFFF · текст #1E2537</small></div><div class="g-surface dark"><h3>Открывай возможности</h3><p>Контрастная версия с белым текстом, без дополнительных акцентных цветов.</p><small>Фон #0B1634 · текст #FFFFFF · вторичный #B2BFD3</small></div><div class="g-surface blue"><h3>Будущее создаём вместе</h3><p>Насыщенный фирменный синий уместен точечно, а не повсеместно.</p><small>Фон #2954C7 · текст #FFFFFF</small></div></div>
+    <div class="g-row"><div class="g-surface"><h3>Творчество начинается здесь</h3><p>Нейтральная поверхность, читаемый заголовок, основной текст и спокойная иерархия.</p><small>Поверхность · заголовок · основной текст</small></div><div class="g-surface soft"><h3>Время создавать новое</h3><p>Приглушённый акцентный фон подходит для аккуратного фирменного акцента.</p><small>Мягкий акцент · основной текст</small></div><div class="g-surface dark"><h3>Открывай возможности</h3><p>Контрастная версия с белым текстом, без дополнительных акцентных цветов.</p><small>Контрастная поверхность · светлый текст</small></div><div class="g-surface blue"><h3>Будущее создаём вместе</h3><p>Насыщенный фирменный синий уместен точечно, а не повсеместно.</p><small>Фирменный акцент · контрастный текст</small></div></div>
   </section>
   <section class="g-section" id="type"><div class="g-section-head"><h2>03. Типографика</h2><p>Unbounded Bold заглавными буквами. В тексте — Involve: Regular, Medium и Bold. Размеры показаны по утверждённой шкале.</p></div>
     <div class="g-type"><div class="g-type-toolbar"><b>Типографическая шкала</b><button class="g-toggle" id="toggle-type" type="button" aria-pressed="false">Показать мобильные размеры</button></div><div class="g-type-stage" id="type-stage"><div class="g-type-row"><div class="g-type-key"><b>H1</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h1">Пространство идей</p></div><div class="g-type-row"><div class="g-type-key"><b>H2</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h2">Ближайшие события</p></div><div class="g-type-row"><div class="g-type-key"><b>H3</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h3">Открывай новое</p></div><div class="g-type-row"><div class="g-type-key"><b>H4</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h4">Творческие проекты</p></div><div class="g-type-row"><div class="g-type-key"><b>Lead</b><small>Involve Medium · 500</small></div><p class="g-type-text type-lead">Место, где идеи получают поддержку и становятся реальностью.</p></div><div class="g-type-row"><div class="g-type-key"><b>Body</b><small>Involve Regular · 400</small></div><p class="g-type-text type-body">Мы объединяем творческих людей и помогаем находить новые возможности для развития.</p></div><div class="g-type-row"><div class="g-type-key"><b>Reading</b><small>Involve Regular · 400</small></div><p class="g-type-text type-reading">Информацию о событиях, участии и пространствах можно прочитать без лишней визуальной нагрузки.</p></div><div class="g-type-row"><div class="g-type-key"><b>Metadata</b><small>Involve Regular · 400</small></div><p class="g-type-text type-meta">23 ноября · Волгоград · Вход свободный</p></div></div></div>
@@ -218,15 +277,37 @@ body{margin:0;background:var(--volga-bg);color:var(--volga-text);font-family:var
     <div class="g-pairings"><div class="g-pair"><span class="g-kicker">H3 + Reading</span><div class="pair-title">Создавай своё</div><p>Мы помогаем творческим инициативам находить поддержку, место для встреч и новые возможности.</p></div><div class="g-pair dark"><span style="font:500 13px var(--volga-font-text);color:var(--volga-text-on-dark-muted)">Тёмная поверхность</span><div class="pair-title">В центре событий</div><p>Объединяем людей, пространства и идеи в едином творческом сообществе.</p></div></div>
   </section>
   <section class="g-section" id="states"><div class="g-section-head"><h2>05. Цвета действий</h2><p>Ниже показаны только цветовые пары для состояний. Форма элементов в этом каталоге произвольная.</p></div>
-    <div class="g-samples"><article class="g-sample"><h3>Основное действие · обычное</h3><div class="sample-pill" style="background:#2954C7;color:#FFFFFF;border-color:#2954C7">Принять участие</div><small>Фон #2954C7 · текст #FFFFFF</small></article><article class="g-sample"><h3>Основное действие · hover</h3><div class="sample-pill" style="background:#FFFFFF;color:#2954C7;border-color:#2954C7">Принять участие</div><small>Предпочтительная инверсия: фон #FFFFFF · текст #2954C7</small></article><article class="g-sample"><h3>Основное действие · альтернатива</h3><div class="sample-pill" style="background:#2348AD;color:#FFFFFF;border-color:#2348AD">Принять участие</div><small>Затемнение: фон #2348AD · текст #FFFFFF</small></article><article class="g-sample"><h3>Светлое вторичное · обычное</h3><div class="sample-pill" style="background:#FFFFFF;color:#2954C7;border-color:#2954C7">Подробнее</div><small>Фон #FFFFFF · текст #2954C7</small></article><article class="g-sample"><h3>Светлое вторичное · hover</h3><div class="sample-pill" style="background:#2954C7;color:#FFFFFF;border-color:#2954C7">Подробнее</div><small>Инверсия: фон #2954C7 · текст #FFFFFF</small></article><article class="g-sample"><h3>Светлое вторичное · мягкий hover</h3><div class="sample-pill" style="background:#E3EFFF;color:#2954C7;border-color:#2954C7">Подробнее</div><small>Подложка #E3EFFF · текст #2954C7</small></article></div>
+    <div class="g-samples"><article class="g-sample"><h3>Основное действие · обычное</h3><div class="sample-pill" style="background:var(--volga-primary);color:var(--volga-on-primary);border-color:var(--volga-primary)">Принять участие</div><small data-pair-bg="--volga-primary" data-pair-text="--volga-on-primary" data-pair-label="Основное действие"></small></article><article class="g-sample"><h3>Основное действие · hover</h3><div class="sample-pill" style="background:var(--volga-surface);color:var(--volga-primary);border-color:var(--volga-primary)">Принять участие</div><small data-pair-bg="--volga-surface" data-pair-text="--volga-primary" data-pair-label="Инверсия"></small></article><article class="g-sample"><h3>Основное действие · альтернатива</h3><div class="sample-pill" style="background:var(--volga-primary-hover-alt);color:var(--volga-on-primary);border-color:var(--volga-primary-hover-alt)">Принять участие</div><small data-pair-bg="--volga-primary-hover-alt" data-pair-text="--volga-on-primary" data-pair-label="Альтернативный hover"></small></article><article class="g-sample"><h3>Вторичное действие · обычное</h3><div class="sample-pill" style="background:var(--volga-surface);color:var(--volga-primary);border-color:var(--volga-primary)">Подробнее</div><small data-pair-bg="--volga-surface" data-pair-text="--volga-primary" data-pair-label="Вторичное действие"></small></article><article class="g-sample"><h3>Вторичное действие · hover</h3><div class="sample-pill" style="background:var(--volga-primary);color:var(--volga-on-primary);border-color:var(--volga-primary)">Подробнее</div><small data-pair-bg="--volga-primary" data-pair-text="--volga-on-primary" data-pair-label="Инверсия"></small></article><article class="g-sample"><h3>Вторичное действие · мягкий hover</h3><div class="sample-pill" style="background:var(--volga-primary-soft);color:var(--volga-primary);border-color:var(--volga-primary)">Подробнее</div><small data-pair-bg="--volga-primary-soft" data-pair-text="--volga-primary" data-pair-label="Мягкий hover"></small></article></div>
   </section>
   <section class="g-section"><div class="g-section-head"><h2>06. Ссылки</h2><p>Для посещённой ссылки берётся тот же цвет, что и для hover. Макеты показывают цветовые состояния, а не историю браузера.</p></div>
-    <div class="g-links"><div class="g-link-preview"><h3>Светлая поверхность</h3><div class="g-link-line"><em>Обычная</em><span style="color:#2954C7">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:#1D355F">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:#1D355F">Подробнее</span></div></div><div class="g-link-preview dark"><h3>На navy</h3><div class="g-link-line"><em>Обычная</em><span style="color:#FFFFFF">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:#B2BFD3">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:#B2BFD3">Подробнее</span></div></div><div class="g-link-preview blue"><h3>На фирменном синем</h3><div class="g-link-line"><em>Обычная</em><span style="color:#FFFFFF">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:#E3EFFF">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:#E3EFFF">Подробнее</span></div></div></div>
+    <div class="g-links"><div class="g-link-preview"><h3>Основная поверхность</h3><div class="g-link-line"><em>Обычная</em><span style="color:var(--volga-primary)">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:var(--volga-link-hover)">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:var(--volga-link-visited)">Подробнее</span></div></div><div class="g-link-preview dark"><h3>На navy</h3><div class="g-link-line"><em>Обычная</em><span style="color:var(--volga-on-dark)">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:var(--volga-link-on-dark-hover)">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:var(--volga-link-on-dark-hover)">Подробнее</span></div></div><div class="g-link-preview blue"><h3>На фирменном синем</h3><div class="g-link-line"><em>Обычная</em><span style="color:var(--volga-on-primary)">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:var(--volga-link-on-blue-hover)">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:var(--volga-link-on-blue-hover)">Подробнее</span></div></div></div>
   </section>
-  <section class="g-section"><div class="g-section-head"><h2>07. Системные цвета</h2><p>Статусы применяются только по смыслу. Контур или заливка не заменяют текстовое объяснение.</p></div><div class="g-status"><article style="background:#EAF7EF;color:#167447"><strong>Успех</strong><p>Семантическая окраска, а не декор</p></article><article style="background:#FFF0EE;color:#B42318"><strong>Ошибка</strong><p>Семантическая окраска, а не декор</p></article><article style="background:#FFF6E9;color:#8A4C00"><strong>Предупреждение</strong><p>Семантическая окраска, а не декор</p></article></div></section>
-  <footer class="g-foot">МАУ «Волга» · Brand Foundation 2.0.0 · Нормативны BRAND.md и tokens.css; оформления справочника в проекты не переносятся. Шрифты загружаются из внешних источников только для просмотра.</footer>
+  <section class="g-section"><div class="g-section-head"><h2>07. Системные цвета</h2><p>Статусы применяются только по смыслу. Контур или заливка не заменяют текстовое объяснение.</p></div><div class="g-status"><article style="background:var(--volga-success-bg);color:var(--volga-success)"><strong>Успех</strong><p>Семантическая окраска, а не декор</p></article><article style="background:var(--volga-error-bg);color:var(--volga-error)"><strong>Ошибка</strong><p>Семантическая окраска, а не декор</p></article><article style="background:var(--volga-warning-bg);color:var(--volga-warning)"><strong>Предупреждение</strong><p>Семантическая окраска, а не декор</p></article></div></section>
+  <footer class="g-foot">МАУ «Волга» · Brand Foundation 2.1.0 · Нормативны BRAND.md и tokens.css; оформления справочника в проекты не переносятся. Шрифты загружаются из внешних источников только для просмотра.</footer>
 </main>
 <script>
 const btn=document.getElementById('toggle-type');const stage=document.getElementById('type-stage');
 btn.addEventListener('click',()=>{const mobile=stage.classList.toggle('mobile');btn.setAttribute('aria-pressed',String(mobile));btn.textContent=mobile?'Показать десктопные размеры':'Показать мобильные размеры';});
+</script><script id="gallery-theme-switch">
+(function(){
+ const root=document.documentElement;
+ const controls=document.querySelectorAll('[data-theme-choice]');
+ const displayHex=(token)=>getComputedStyle(root).getPropertyValue(token).trim().toUpperCase();
+ const refresh=()=>{
+  for(const el of document.querySelectorAll('[data-token-hex]')){
+   el.textContent=displayHex(el.dataset.tokenHex);
+  }
+  for(const el of document.querySelectorAll('[data-pair-bg]')){
+   el.textContent=el.dataset.pairLabel+': фон '+displayHex(el.dataset.pairBg)+' · текст '+displayHex(el.dataset.pairText);
+  }
+ };
+ const setTheme=(theme)=>{
+  root.dataset.theme=theme;
+  controls.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.themeChoice===theme)));
+  refresh();
+ };
+ controls.forEach(btn=>btn.addEventListener('click',()=>setTheme(btn.dataset.themeChoice)));
+ const requestedTheme=new URLSearchParams(location.search).get('theme');
+ setTheme(requestedTheme==='dark'?'dark':'light');
+})();
 </script></body></html>

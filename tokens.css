@@ -1,4 +1,4 @@
-/* MAU Volga Brand Foundation — color and typography tokens, v2.0.0.
+/* MAU Volga Brand Foundation — color and typography tokens, v2.1.0.
    Source of truth: BRAND.md. No component styles or font files are included. */
 :root {
   /* Core palette */
@@ -94,4 +94,32 @@
     --volga-h1: 1.75rem;
     --volga-h2: 1.5rem;
   }
+}
+
+
+/* Dark theme: opt-in, semantic colors only; original logo colors are unchanged. */
+[data-theme="dark"] {
+  --volga-bg: #0B1634;
+  --volga-surface: #1E2537;
+  --volga-heading: #FFFFFF;
+  --volga-text: #F2F5FC;
+  --volga-text-secondary: #B2BFD3;
+  --volga-primary: #81ABF5;
+  --volga-primary-soft: #1D355F;
+  --volga-divider: #3D4C67;
+  --volga-control-border: #8CA0BC;
+  --volga-text-on-dark-muted: #B2BFD3;
+  --volga-on-primary: #0B1634;
+  --volga-on-dark: #FFFFFF;
+  --volga-primary-hover-alt: #BCD4F6;
+  --volga-link-hover: #BCD4F6;
+  --volga-link-visited: #BCD4F6;
+  --volga-link-on-dark-hover: #BCD4F6;
+  --volga-link-on-blue-hover: #1D355F;
+  --volga-success: #83DDAE;
+  --volga-success-bg: #153D31;
+  --volga-error: #FFABA5;
+  --volga-error-bg: #4A242A;
+  --volga-warning: #FFD18A;
+  --volga-warning-bg: #49351F;
 }
