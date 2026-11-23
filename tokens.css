@@ -1,4 +1,4 @@
-/* MAU Volga Brand Foundation — color and typography tokens, v2.1.0.
+/* MAU Volga Brand Foundation — color and typography tokens, v2.2.0.
    Source of truth: BRAND.md. No component styles or font files are included. */
 :root {
   /* Core palette */
@@ -33,10 +33,13 @@
   /* Typography family, weights and register */
   --volga-font-headings: 'Unbounded', sans-serif;
   --volga-font-text: 'Involve', sans-serif;
+  --volga-font-display: var(--volga-font-headings);
+  --volga-font-ui-heading: var(--volga-font-text);
+  --volga-ui-heading-case: none;
   --volga-weight-regular: 400;
   --volga-weight-medium: 500;
   --volga-weight-bold: 700;
-  --volga-heading-case: uppercase;
+  --volga-heading-case: uppercase; /* Display heading */
 
   /* Desktop typography; 1rem = 16 CSS px at the default root size */
   --volga-h1: 3.5rem;

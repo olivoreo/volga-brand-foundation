@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ru" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
-<title>МАУ «Волга» — Brand Foundation 2.1.0 · Палитра и типографика</title>
+<title>МАУ «Волга» — Brand Foundation 2.2.0 · Палитра и типографика</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -9,7 +9,7 @@
 @font-face{font-family:'Involve';src:local('Involve Bold'),url('https://cdn.jsdelivr.net/gh/StefanPeev/Involve@main/fonts/TTF/Involve-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
 </style>
 <style id="brand-tokens">
-/* MAU Volga Brand Foundation — color and typography tokens, v2.1.0.
+/* MAU Volga Brand Foundation — color and typography tokens, v2.2.0.
    Source of truth: BRAND.md. No component styles or font files are included. */
 :root {
   /* Core palette */
@@ -44,10 +44,13 @@
   /* Typography family, weights and register */
   --volga-font-headings: 'Unbounded', sans-serif;
   --volga-font-text: 'Involve', sans-serif;
+  --volga-font-display: var(--volga-font-headings);
+  --volga-font-ui-heading: var(--volga-font-text);
+  --volga-ui-heading-case: none;
   --volga-weight-regular: 400;
   --volga-weight-medium: 500;
   --volga-weight-bold: 700;
-  --volga-heading-case: uppercase;
+  --volga-heading-case: uppercase; /* Display heading */
 
   /* Desktop typography; 1rem = 16 CSS px at the default root size */
   --volga-h1: 3.5rem;
@@ -165,7 +168,7 @@ body{margin:0;background:var(--volga-bg);color:var(--volga-text);font-family:var
 .g-surface.dark{background:var(--volga-heading);border-color:var(--volga-heading);color:white}
 .g-surface.blue{background:var(--volga-primary);border-color:var(--volga-primary);color:white}
 .g-surface.soft{background:var(--volga-primary-soft);border-color:var(--volga-primary-soft)}
-.g-surface h3{font:700 clamp(19px,2vw,27px)/1.3 var(--volga-font-headings);text-transform:uppercase;margin:0 0 14px;color:var(--volga-heading)}
+.g-surface h3{font:700 var(--volga-h3)/var(--volga-h3-line) var(--volga-font-ui-heading);text-transform:var(--volga-ui-heading-case);margin:0 0 14px;color:var(--volga-heading)}
 .g-surface p{font:400 17px/1.6 var(--volga-font-text);margin:0 0 13px;max-width:53ch;color:var(--volga-text)}
 .g-surface small{display:block;margin-top:24px;color:var(--volga-text-secondary);font-size:13px}
 .g-surface.dark h3,.g-surface.dark p,.g-surface.blue h3,.g-surface.blue p{color:white}
@@ -187,8 +190,8 @@ body{margin:0;background:var(--volga-bg);color:var(--volga-text);font-family:var
 .type-h{font-family:var(--volga-font-headings);font-weight:700;text-transform:var(--volga-heading-case);color:var(--volga-heading)}
 .type-h1{font-size:var(--volga-h1);line-height:var(--volga-h1-line);letter-spacing:var(--volga-h1-tracking)}
 .type-h2{font-size:var(--volga-h2);line-height:var(--volga-h2-line)}
-.type-h3{font-size:var(--volga-h3);line-height:var(--volga-h3-line)}
-.type-h4{font-size:var(--volga-h4);line-height:var(--volga-h4-line)}
+.type-h3{font-family:var(--volga-font-ui-heading);text-transform:var(--volga-ui-heading-case);font-size:var(--volga-h3);line-height:var(--volga-h3-line)}
+.type-h4{font-family:var(--volga-font-ui-heading);text-transform:var(--volga-ui-heading-case);font-size:var(--volga-h4);line-height:var(--volga-h4-line)}
 .type-lead{font:500 var(--volga-lead)/var(--volga-lead-line) var(--volga-font-text)}
 .type-body{font:400 var(--volga-body)/var(--volga-body-line) var(--volga-font-text)}
 .type-reading{font:400 var(--volga-reading)/var(--volga-reading-line) var(--volga-font-text)}
@@ -200,7 +203,7 @@ body{margin:0;background:var(--volga-bg);color:var(--volga-text);font-family:var
 .g-pairings{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
 .g-pair{padding:32px;border:1px solid var(--volga-divider);border-radius:15px;background:var(--volga-surface)}
 .g-pair.dark{background:var(--volga-heading);border-color:var(--volga-heading);color:#fff}
-.g-pair .pair-title{font-family:var(--volga-font-headings);font-size:var(--volga-h3);font-weight:700;line-height:var(--volga-h3-line);text-transform:uppercase;margin:10px 0 15px;color:var(--volga-heading);overflow-wrap:anywhere}
+.g-pair .pair-title{font-family:var(--volga-font-ui-heading);font-size:var(--volga-h3);font-weight:700;line-height:var(--volga-h3-line);text-transform:var(--volga-ui-heading-case);margin:10px 0 15px;color:var(--volga-heading);overflow-wrap:anywhere}
 .g-pair p{font:400 var(--volga-reading)/1.65 var(--volga-font-text);margin:0;max-width:54ch}
 .g-pair.dark .pair-title{color:white}
 .g-pair.dark p{color:var(--volga-text-on-dark-muted)}
@@ -229,6 +232,11 @@ body{margin:0;background:var(--volga-bg);color:var(--volga-text);font-family:var
 @media(max-width:359px){.swatch-grid{grid-template-columns:1fr}.g-intro h1{font-size:34px}}
 
 </style><style id="gallery-theme-overrides">
+.g-ui-h2-example{background:var(--volga-surface);border:1px solid var(--volga-divider);border-radius:15px;padding:24px;margin-top:14px}
+.g-ui-h2-example strong{display:block;font:500 13px var(--volga-font-text);color:var(--volga-text-secondary)}
+.g-ui-h2-title{font-family:var(--volga-font-ui-heading);font-size:var(--volga-h2);font-weight:var(--volga-weight-bold);line-height:var(--volga-h2-line);color:var(--volga-heading);margin:14px 0 10px}
+.g-ui-h2-example small{color:var(--volga-text-secondary)}
+
 /* Visual gallery only: theme adaptation of examples, never part of tokens.css. */
 :root{color-scheme:light}
 html[data-theme="dark"]{color-scheme:dark}
@@ -256,7 +264,7 @@ html[data-theme="dark"] .g-link-preview.dark{background:var(--volga-primary-soft
 </style></head><body>
 <main class="g-page">
   <header class="g-top"><span class="g-logo">ВОЛГА / BRAND</span>
-<div class="g-head-right"><span class="g-id">Цвета и типографика · 2.1.0</span>
+<div class="g-head-right"><span class="g-id">Цвета и типографика · 2.2.0</span>
 <div class="g-theme-switch" role="group" aria-label="Тема справочника">
 <button class="g-theme-button" type="button" data-theme-choice="light" aria-pressed="true">Светлая</button>
 <button class="g-theme-button" type="button" data-theme-choice="dark" aria-pressed="false">Тёмная</button>
@@ -269,11 +277,16 @@ html[data-theme="dark"] .g-link-preview.dark{background:var(--volga-primary-soft
   <section class="g-section"><div class="g-section-head"><h2>02. Сочетания</h2><p>Одинаковые шрифты и цвета на различных поверхностях. Иллюстративная композиция, не шаблон секции.</p></div>
     <div class="g-row"><div class="g-surface"><h3>Творчество начинается здесь</h3><p>Нейтральная поверхность, читаемый заголовок, основной текст и спокойная иерархия.</p><small>Поверхность · заголовок · основной текст</small></div><div class="g-surface soft"><h3>Время создавать новое</h3><p>Приглушённый акцентный фон подходит для аккуратного фирменного акцента.</p><small>Мягкий акцент · основной текст</small></div><div class="g-surface dark"><h3>Открывай возможности</h3><p>Контрастная версия с белым текстом, без дополнительных акцентных цветов.</p><small>Контрастная поверхность · светлый текст</small></div><div class="g-surface blue"><h3>Будущее создаём вместе</h3><p>Насыщенный фирменный синий уместен точечно, а не повсеместно.</p><small>Фирменный акцент · контрастный текст</small></div></div>
   </section>
-  <section class="g-section" id="type"><div class="g-section-head"><h2>03. Типографика</h2><p>Unbounded Bold заглавными буквами. В тексте — Involve: Regular, Medium и Bold. Размеры показаны по утверждённой шкале.</p></div>
-    <div class="g-type"><div class="g-type-toolbar"><b>Типографическая шкала</b><button class="g-toggle" id="toggle-type" type="button" aria-pressed="false">Показать мобильные размеры</button></div><div class="g-type-stage" id="type-stage"><div class="g-type-row"><div class="g-type-key"><b>H1</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h1">Пространство идей</p></div><div class="g-type-row"><div class="g-type-key"><b>H2</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h2">Ближайшие события</p></div><div class="g-type-row"><div class="g-type-key"><b>H3</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h3">Открывай новое</p></div><div class="g-type-row"><div class="g-type-key"><b>H4</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h4">Творческие проекты</p></div><div class="g-type-row"><div class="g-type-key"><b>Lead</b><small>Involve Medium · 500</small></div><p class="g-type-text type-lead">Место, где идеи получают поддержку и становятся реальностью.</p></div><div class="g-type-row"><div class="g-type-key"><b>Body</b><small>Involve Regular · 400</small></div><p class="g-type-text type-body">Мы объединяем творческих людей и помогаем находить новые возможности для развития.</p></div><div class="g-type-row"><div class="g-type-key"><b>Reading</b><small>Involve Regular · 400</small></div><p class="g-type-text type-reading">Информацию о событиях, участии и пространствах можно прочитать без лишней визуальной нагрузки.</p></div><div class="g-type-row"><div class="g-type-key"><b>Metadata</b><small>Involve Regular · 400</small></div><p class="g-type-text type-meta">23 ноября · Волгоград · Вход свободный</p></div></div></div>
+  <section class="g-section" id="type"><div class="g-section-head"><h2>03. Типографика</h2><p>H1–H2 по умолчанию — Unbounded Bold CAPS. H3–H4 — Involve Bold без принудительных прописных. Ниже — обе роли в общей шкале.</p></div>
+    <div class="g-type"><div class="g-type-toolbar"><b>Типографическая шкала</b><button class="g-toggle" id="toggle-type" type="button" aria-pressed="false">Показать мобильные размеры</button></div><div class="g-type-stage" id="type-stage"><div class="g-type-row"><div class="g-type-key"><b>H1</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h1">Пространство идей</p></div><div class="g-type-row"><div class="g-type-key"><b>H2</b><small>Unbounded Bold · 700 · CAPS</small></div><p class="g-type-text type-h type-h2">Ближайшие события</p></div><div class="g-type-row"><div class="g-type-key"><b>H3</b><small>Involve Bold · 700 · обычный регистр</small></div><p class="g-type-text type-h type-h3">Открывай новое</p></div><div class="g-type-row"><div class="g-type-key"><b>H4</b><small>Involve Bold · 700 · обычный регистр</small></div><p class="g-type-text type-h type-h4">Творческие проекты</p></div><div class="g-type-row"><div class="g-type-key"><b>Lead</b><small>Involve Medium · 500</small></div><p class="g-type-text type-lead">Место, где идеи получают поддержку и становятся реальностью.</p></div><div class="g-type-row"><div class="g-type-key"><b>Body</b><small>Involve Regular · 400</small></div><p class="g-type-text type-body">Мы объединяем творческих людей и помогаем находить новые возможности для развития.</p></div><div class="g-type-row"><div class="g-type-key"><b>Reading</b><small>Involve Regular · 400</small></div><p class="g-type-text type-reading">Информацию о событиях, участии и пространствах можно прочитать без лишней визуальной нагрузки.</p></div><div class="g-type-row"><div class="g-type-key"><b>Metadata</b><small>Involve Regular · 400</small></div><p class="g-type-text type-meta">23 ноября · Волгоград · Вход свободный</p></div></div></div>
     <div class="g-weights"><div class="g-weight"><b>400 · Regular — обычный текст</b><span style="font-weight:400">Творчество объединяет</span></div><div class="g-weight"><b>500 · Medium — вводная часть</b><span style="font-weight:500">Творчество объединяет</span></div><div class="g-weight"><b>700 · Bold — акцент</b><span style="font-weight:700">Творчество объединяет</span></div></div>
+<div class="g-ui-h2-example">
+<strong>Допустимый вариант для админ-панелей и мини-приложений</strong>
+<p class="g-ui-h2-title">Заявки и участники</p>
+<small>H2 · Involve Bold 700 · естественный регистр вместо акцентного Unbounded</small>
+</div>
   </section>
-  <section class="g-section"><div class="g-section-head"><h2>04. Пары текстов</h2><p>Как связка заголовка с абзацем сохраняет иерархию. Размеры относятся к шрифту, а не к конкретному компоненту.</p></div>
+  <section class="g-section"><div class="g-section-head"><h2>04. Пары текстов</h2><p>Как Involve Bold в заголовке H3 сочетается с текстом Reading. Это примеры типографических ролей, не готовые компоненты.</p></div>
     <div class="g-pairings"><div class="g-pair"><span class="g-kicker">H3 + Reading</span><div class="pair-title">Создавай своё</div><p>Мы помогаем творческим инициативам находить поддержку, место для встреч и новые возможности.</p></div><div class="g-pair dark"><span style="font:500 13px var(--volga-font-text);color:var(--volga-text-on-dark-muted)">Тёмная поверхность</span><div class="pair-title">В центре событий</div><p>Объединяем людей, пространства и идеи в едином творческом сообществе.</p></div></div>
   </section>
   <section class="g-section" id="states"><div class="g-section-head"><h2>05. Цвета действий</h2><p>Ниже показаны только цветовые пары для состояний. Форма элементов в этом каталоге произвольная.</p></div>
@@ -283,7 +296,7 @@ html[data-theme="dark"] .g-link-preview.dark{background:var(--volga-primary-soft
     <div class="g-links"><div class="g-link-preview"><h3>Основная поверхность</h3><div class="g-link-line"><em>Обычная</em><span style="color:var(--volga-primary)">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:var(--volga-link-hover)">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:var(--volga-link-visited)">Подробнее</span></div></div><div class="g-link-preview dark"><h3>На navy</h3><div class="g-link-line"><em>Обычная</em><span style="color:var(--volga-on-dark)">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:var(--volga-link-on-dark-hover)">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:var(--volga-link-on-dark-hover)">Подробнее</span></div></div><div class="g-link-preview blue"><h3>На фирменном синем</h3><div class="g-link-line"><em>Обычная</em><span style="color:var(--volga-on-primary)">Подробнее</span></div><div class="g-link-line"><em>Hover</em><span style="color:var(--volga-link-on-blue-hover)">Подробнее</span></div><div class="g-link-line"><em>Visited</em><span style="color:var(--volga-link-on-blue-hover)">Подробнее</span></div></div></div>
   </section>
   <section class="g-section"><div class="g-section-head"><h2>07. Системные цвета</h2><p>Статусы применяются только по смыслу. Контур или заливка не заменяют текстовое объяснение.</p></div><div class="g-status"><article style="background:var(--volga-success-bg);color:var(--volga-success)"><strong>Успех</strong><p>Семантическая окраска, а не декор</p></article><article style="background:var(--volga-error-bg);color:var(--volga-error)"><strong>Ошибка</strong><p>Семантическая окраска, а не декор</p></article><article style="background:var(--volga-warning-bg);color:var(--volga-warning)"><strong>Предупреждение</strong><p>Семантическая окраска, а не декор</p></article></div></section>
-  <footer class="g-foot">МАУ «Волга» · Brand Foundation 2.1.0 · Нормативны BRAND.md и tokens.css; оформления справочника в проекты не переносятся. Шрифты загружаются из внешних источников только для просмотра.</footer>
+  <footer class="g-foot">МАУ «Волга» · Brand Foundation 2.2.0 · Нормативны BRAND.md и tokens.css; оформления справочника в проекты не переносятся. Шрифты загружаются из внешних источников только для просмотра.</footer>
 </main>
 <script>
 const btn=document.getElementById('toggle-type');const stage=document.getElementById('type-stage');
